@@ -1,0 +1,38 @@
+﻿@page
+@using OdevPortali.Models;
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kullanıcı Sayfası</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Kullanıcı Sayfası</h1>
+
+        
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="odevAdi">Ödev Adı:</label>
+                <input type="text" class="form-control" id="odevAdi" name="odevAdi">
+            </div>
+            <div class="form-group">
+                <label for="aciklama">Açıklama:</label>
+                <textarea class="form-control" id="aciklama" name="aciklama" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="dosya">Dosya Yükle:</label>
+                <input type="file" class="form-control-file" id="dosya" name="dosya">
+            </div>
+            <button type="submit" class="btn btn-primary">Ödevi Yükle</button>
+        </form>
+
+        <hr>
+
+       
+                </div>
+            </body>
+        </html>

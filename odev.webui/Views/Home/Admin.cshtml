@@ -1,0 +1,67 @@
+﻿   <style>
+        body {
+            text-align: center;
+        }
+
+        main.form-signin {
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        img.mb-4 {
+            width: 72px;
+            height: 57px;
+        }
+
+        .form-floating {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: .375rem .75rem;
+        }
+
+        .btn {
+            width: 100%;
+            padding: .375rem .75rem;
+        }
+
+        p.text-muted {
+            margin-top: 5rem;
+            margin-bottom: 3rem;
+        }
+    </style>
+
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div>
+        <main class="form-signin">
+            <form action="@Url.Action("Index", "Admin","template")" method="post">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" name="KullaniciAdi" required>
+                    <label for="floatingInput">Kullanıcı Adı</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" name="Sifre" required>
+                    <label for="floatingPassword">Şifre</label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Giriş Yap</button>
+            </form>
+
+           
+        </main>
+    </div>
+</body>
+</html>

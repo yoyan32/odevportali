@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        
+
+        .content main {
+            padding-top: 20px;
+        }
+
+        .content .chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .content .chart canvas {
+                max-width: 300px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+
+        .content .add-task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+
+            .content .add-task input[type="text"] {
+                padding: 5px;
+                margin-right: 10px;
+            }
+
+            .content .add-task button {
+                padding: 7px 15px;
+                border: none;
+                border-radius: 3px;
+                background-color: #007bff;
+                color: #fff;
+                cursor: pointer;
+            }
+
+        .chart-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .chart-legend {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+            .chart-legend span {
+                display: flex;
+                align-items: center;
+            }
+
+                .chart-legend span::before {
+                    content: '';
+                    display: inline-block;
+                    width: 10px;
+                    height: 10px;
+                    margin-right: 5px;
+                    border-radius: 50%;
+                }
+
+            .chart-legend .blue::before {
+                background-color: rgba(54, 162, 235, 0.7);
+            }
+
+            .chart-legend .red::before {
+                background-color: rgba(255, 99, 132, 0.7);
+            }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+       
+    </div>
+
+    <div class="content">
+        <header>
+            <h1>Hoş Geldiniz!</h1>
+        </header>
+        <main>
+            <div class="chart">
+                <div class="chart-container">
+                    <canvas id="myChart"></canvas>
+                    <div class="centered">
+                        <p>75%</p>
+                        <p>25%</p>
+                    </div>
+                </div>
+                <div class="chart-legend">
+                    <span class="blue">Ödevi Gönderenler</span>
+                    <span class="red">Ödevi Göndermeyenler</span>
+                </div>
+            </div>
+            <div class="add-task">
+                <input type="text" placeholder="Yeni ödev adı...">
+                <button type="button">Ekle</button>
+            </div>
+        </main>
+        <footer>
+            <p>Admin Panel - Ödev Portalı</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+       
+        const data = {
+            labels: ['Ödevi Gönderenler', 'Ödevi Göndermeyenler'],
+            datasets: [{
+                label: 'Öğrenci Durumu',
+                data: [75, 25], 
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.7)',
+                    'rgba(255, 99, 132, 0.7)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'pie',
+            data: data,
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
